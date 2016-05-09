@@ -10,14 +10,48 @@ a
     text-decoration: none;   
 }
 
+@color1: Green;
+@color2: Blue;
+@factor1: 1.1;
+@factor2: 1.8;
+@passThrough: true;
 
-
-#lessIntro
+//dit is een geparametiseerde mixin.
+.lessIntro(@factor, @backgroundColor, @divWidth: 400px, @placeHolder: auto, @passThrough: false) when ((@factor > 1) and (@placeHolder = auto)), (@passThrough)
 {
-    border: 5px solid Blue;
-    width: 500px;
-    padding: 2em;
-    background-color: aqua;
-    color: chocolate;
-    margin-top: 3em;
+    border: @factor * 1em solid darken(@backgroundColor, 20%);
+    width: @factor * @divWidth;
+    padding: @factor * 1em;
+    background-color: @backgroundColor;
+    color: lighten(@backgroundColor, 20%);
+    margin: 3em @placeHolder;
+    font-size: @factor * 1.5em;
+    border-radius: 1.5em;
+}
+
+#div1
+{
+    .lessIntro(@factor1, @color1, 300px, 100px, true);   
+}
+
+#div2
+{
+    .lessIntro(@factor2, @color2, 500px);   
+}
+
+//maak een nieuwe pagina die een 2 verschillende tabellen laat zien met ieder 5 records. de opmaak moet worden geregeld door dezelfde geparametriseerde Less mixin met guard
+
+.tblDefault
+{
+    border: 3px solid black;   
+}
+
+#tbl1
+{
+    .tblDefault;   
+}
+
+#tbl2
+{
+    .tblDefault;   
 }

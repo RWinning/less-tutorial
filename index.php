@@ -11,5 +11,9 @@
             <li><a href="intro_less.php">Introductie en setup LESS</a></li>
     
         </ul>
+        
+        <ul>
+            <li><a href="twee_tabellen.php">Twee tabellen pagina</a></li>
+        </ul>
     </body>
 </html>
