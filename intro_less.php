@@ -5,11 +5,9 @@
         <script src="./less.js-master/dist/less.js"></script>
     </head>
     <body>
-        <h3>LESS tutorial</h3>
-
-        <ul>
-            <li><a href="intro_less.php">Introductie en setup LESS</a></li>
-    
-        </ul>
+        <h3>Intro LESS</h3>
+        <div id="lessIntro">
+            Dit is een div waarvan de opmaak wordt geregeld door LESS.
+        </div>
     </body>
 </html>
