@@ -1,0 +1,47 @@
+//maak een nieuwe pagina die een 2 verschillende tabellen laat zien met ieder 5 records. de opmaak moet worden geregeld door dezelfde geparametriseerde Less mixin met guard
+.tblDefault(@border, @margin, @color, @padding, @borderCollapse: collapse)
+{
+    border-collapse: @borderCollapse;
+    margin: 2em auto;
+    
+    td
+    {
+        border: @border lighten(@color, 40%);
+        margin: @margin;
+        padding: @padding;
+        color: lighten(@color, 50%);
+        font-weight: 800;
+    }
+    
+    th
+    {
+        border: @border @color;
+        margin: @margin;
+        padding: @padding;
+        background-color: darken(@color, 10%);
+        color: lighten(@color, 50%);
+    }
+    
+    tr
+    {
+        &:nth-child(2n)
+        {
+        background-color: lighten(@color, 40%);
+        }
+        
+        &:nth-child(2n+1)
+        {
+           background-color: lighten(@color, 30%); 
+        }
+    }
+}
+
+#tbl1
+{
+    .tblDefault(3px solid, 2em, red, 1em, collapse);   
+}
+
+#tbl2
+{
+    .tblDefault(3px solid, 2em, blue, 1em, collapse);
+}
